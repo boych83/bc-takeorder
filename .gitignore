@@ -2,6 +2,7 @@
 *.flf
 *.bclicense
 *.g.xlf
+*.http
 .DS_Store
 Thumbs.db
 TestResults*.xml
@@ -16,5 +17,6 @@ rad.json
 .alcache/
 .altemplates/
 .snapshots/
+scripts/
 cache_*
 ~$*

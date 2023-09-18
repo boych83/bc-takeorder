@@ -5,7 +5,13 @@
     },
     {
       "path": "AppCode"
-    }
+    },
+	{
+		"path": "..\\.github"
+	},
+	{
+		"path": "..\\scripts"
+	}
   ],
   "settings": {}
 }

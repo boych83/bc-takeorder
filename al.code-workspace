@@ -2,7 +2,13 @@
     "folders": [
         {
             "path": ".AL-Go"
-        }
+        },
+		{
+			"path": "AlApp\\.AL-Go"
+		},
+		{
+			"path": "AlApp\\AppCode"
+		}
     ],
     "settings": {}
 }

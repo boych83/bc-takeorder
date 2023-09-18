@@ -3,11 +3,11 @@
   "templateUrl": "https://github.com/microsoft/AL-Go-PTE@PPPreview",
   "powerPlatformSolutionFolder": "TakeOrder",
   "environments": [
-    "Staging"
+    "QA"
   ],
-  "DeployToStaging": {
-    "environmentName": "staging",
-    "companyId": "f1a13d54-c32f-ee11-bdfb-6045bdc8a7d3",
-    "ppEnvironmentUrl": "https://orgda6e1cf7.crm.dynamics.com/"
+  "DeployToQA": {
+    "environmentName": "PowerApps",
+    "companyId": "42924de7-df46-ee11-be73-6045bdaccfa9",
+    "ppEnvironmentUrl": "https://orgb2203da6.crm4.dynamics.com/"
   }
 }
