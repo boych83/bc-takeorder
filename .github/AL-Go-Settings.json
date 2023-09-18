@@ -19,7 +19,7 @@
     "main"
   ],
   "DeployToQA": {
-    "environmentName ": "PoverApps",
+    "environmentName": "PoverApps",
     "companyId": "42924de7-df46-ee11-be73-6045bdaccfa9",
     "ppEnvironmentUrl": "https://orgb2203da6.crm4.dynamics.com/"
   }
