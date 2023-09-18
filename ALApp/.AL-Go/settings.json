@@ -1,8 +1,11 @@
 {
   "country": "w1",
-  "appFolders": ["AppCode"],
+  "appFolders": [
+    "AppCode"
+  ],
   "testFolders": [],
   "bcptTestFolders": [],
-  "BcContainerHelperVersion": "latest",
+  "repoVersion": "22.5",
+  "applicationDependency": "22.0.0.0",
   "artifact": "https://bcartifacts.azureedge.net/sandbox/22.5.59966.60625/w1"
 }
