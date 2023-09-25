@@ -197,7 +197,7 @@
                 Set(varUserName,User().FullName),
                 Set(varBcCompany,First('localeInformations (businessCentralDemos/TakeOrder/beta)')),
                 Set(varTables, Filter('tables (businessCentralDemos/TakeOrder/beta)', IsTable)),
-                ClearCollect(colItemGroup, Distinct(Filter('itemsWithImage (businessCentralDemos/TakeOrder/beta)', 'Sold In Restaurant'), itemCategoryName))
+                ClearCollect(colItemGroup, Distinct(BcOnline_TakeOrder.ItemsWithImage({'$filter':"SoldInRestaurant eq true",company:"My Company"}).value, itemCategoryCode))
             );
             
             Set(varCompanyName,varBcCompany.DisplayName);

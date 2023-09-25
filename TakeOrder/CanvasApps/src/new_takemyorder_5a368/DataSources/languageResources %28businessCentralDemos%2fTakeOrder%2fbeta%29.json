@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
     "CdpRevision": {
       "BaseUrl": "/v3",
-      "LastChangedTimeString": "2023-03-24T16:12:47.5350000Z",
+      "LastChangedTimeString": "2023-09-13T21:37:41.5550000Z",
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -11,7 +11,7 @@
       "labelId": "labelId",
       "languageCode": "languageCode"
     },
-    "DatasetName": "PoverApps,42924de7-df46-ee11-be73-6045bdaccfa9",
+    "DatasetName": "POVERAPPS,42924de7-df46-ee11-be73-6045bdaccfa9",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,

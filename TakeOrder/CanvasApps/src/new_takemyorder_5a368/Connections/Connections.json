@@ -1,79 +1,54 @@
 {
-  "150e2896-54f3-405b-a1ae-bdda9e197568": {
+  "16bbe5e7-fa2a-4815-9f8d-b1d48f1715cc": {
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
         "6cb6806c-e815-4e58-8693-91bcb31c69e7": {
-          "value": "shared_dynamicssmbsaas"
+          "value": "shared_dynamicssmbsaas_1"
         },
         "workflowEntityId": {
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "8f0a0a1f-8b78-4e10-8a7e-bfb821503f90"
+          "value": "a0292fb6-3606-9f85-2896-e92eb3784cd9"
         }
       },
       "parameterHintsV2": {
-        "shared_dynamicssmbsaas": {
+        "shared_dynamicssmbsaas_1": {
           "value": "6cb6806c-e815-4e58-8693-91bcb31c69e7"
         },
         "workflowEntityId": {
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "8f0a0a1f-8b78-4e10-8a7e-bfb821503f90"
+          "value": "a0292fb6-3606-9f85-2896-e92eb3784cd9"
         }
       }
     },
     "datasets": {},
     "dataSources": [
-      "PostBCSalesOrder"
+      "PostBcSalesOrder"
     ],
     "dependencies": {
-      "shared_dynamicssmbsaas": "6cb6806c-e815-4e58-8693-91bcb31c69e7"
+      "shared_dynamicssmbsaas_1": "6cb6806c-e815-4e58-8693-91bcb31c69e7"
     },
     "dependents": [],
-    "id": "150e2896-54f3-405b-a1ae-bdda9e197568"
-  },
-  "4e33865c-082c-4ac6-827a-7bf5dfc88641": {
-    "connectionRef": {
-      "apiTier": "Premium",
-      "displayName": "Dynamics 365 Business Central",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/dynamicssmbsaas/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {
-      "PoverApps,42924de7-df46-ee11-be73-6045bdaccfa9": {
-        "dataSources": {
-          "itemsWithImage (businessCentralDemos/TakeOrder/beta)": {
-            "tableName": "itemsWithImage,businessCentralDemos%252FTakeOrder%252Fbeta"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "itemsWithImage (businessCentralDemos/TakeOrder/beta)"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "4e33865c-082c-4ac6-827a-7bf5dfc88641"
+    "id": "16bbe5e7-fa2a-4815-9f8d-b1d48f1715cc"
   },
   "6cb6806c-e815-4e58-8693-91bcb31c69e7": {
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Dynamics 365 Business Central",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/dynamicssmbsaas/icon.png",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3440/dynamicssmbsaas/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
       "parameterHints": {},
       "parameterHintsV2": {}
     },
     "datasets": {
-      "PoverApps,42924de7-df46-ee11-be73-6045bdaccfa9": {
+      "POVERAPPS,42924de7-df46-ee11-be73-6045bdaccfa9": {
         "dataSources": {
           "languageResources (businessCentralDemos/TakeOrder/beta)": {
             "tableName": "languageResources,businessCentralDemos%252FTakeOrder%252Fbeta"
@@ -94,16 +69,34 @@
       }
     },
     "dataSources": [
-      "salesOrders (v2.0)",
-      "salesOrderLines (v2.0)",
       "languageResources (businessCentralDemos/TakeOrder/beta)",
       "localeInformations (businessCentralDemos/TakeOrder/beta)",
+      "salesOrders (v2.0)",
+      "salesOrderLines (v2.0)",
       "tables (businessCentralDemos/TakeOrder/beta)"
     ],
     "dependencies": {},
     "dependents": [
-      "150e2896-54f3-405b-a1ae-bdda9e197568"
+      "16bbe5e7-fa2a-4815-9f8d-b1d48f1715cc"
     ],
     "id": "6cb6806c-e815-4e58-8693-91bcb31c69e7"
+  },
+  "f76ea4ce-7818-49a9-8a7a-926ae6124be6": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "BcOnline_TakeOrder",
+      "iconUri": "https://az787822.vo.msecnd.net/defaulticons/api-dedicated.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf",
+      "isCustomApiConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "BcOnline_TakeOrder"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "f76ea4ce-7818-49a9-8a7a-926ae6124be6"
   }
 }

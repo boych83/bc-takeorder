@@ -1,33 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Entities></Entities>
-  <Roles></Roles>
-  <Workflows>
-    <Workflow WorkflowId="{8b94a6d9-a3c1-ed11-83ff-000d3a991110}" Name="Post Bc Sales Order">
-      <JsonFileName>/Workflows/PostBcSalesOrder-8B94A6D9-A3C1-ED11-83FF-000D3A991110.json</JsonFileName>
-      <Type>1</Type>
-      <Subprocess>0</Subprocess>
-      <Category>5</Category>
-      <Mode>0</Mode>
-      <Scope>4</Scope>
-      <OnDemand>0</OnDemand>
-      <TriggerOnCreate>0</TriggerOnCreate>
-      <TriggerOnDelete>0</TriggerOnDelete>
-      <AsyncAutodelete>0</AsyncAutodelete>
-      <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-      <StateCode>1</StateCode>
-      <StatusCode>2</StatusCode>
-      <RunAs>1</RunAs>
-      <IsTransacted>1</IsTransacted>
-      <IntroducedVersion>3.0.0.23</IntroducedVersion>
-      <IsCustomizable>1</IsCustomizable>
-      <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
-      <PrimaryEntity>none</PrimaryEntity>
-      <LocalizedNames>
-        <LocalizedName languagecode="1033" description="Post Bc Sales Order" />
-      </LocalizedNames>
-    </Workflow>
-  </Workflows>
-  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
   <Templates />
   <EntityMaps />
   <EntityRelationships />
@@ -35,52 +11,8 @@
   <optionsets />
   <CustomControls />
   <EntityDataProviders />
-  <CanvasApps>
-    <CanvasApp>
-      <Name>new_takemyorder_5a368</Name>
-      <AppVersion>2023-09-23T20:25:57Z</AppVersion>
-      <Status>Ready</Status>
-      <CreatedByClientVersion>3.23092.13.0</CreatedByClientVersion>
-      <MinClientVersion>3.23092.13.0</MinClientVersion>
-      <Tags>{"primaryDeviceWidth":"640","primaryDeviceHeight":"1136","supportsPortrait":"true","supportsLandscape":"false","primaryFormFactor":"Phone","publisherVersion":"3.23092.13","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","sienaVersion":"20230923T192313Z-3.23092.13.0","showStatusBar":"false"}</Tags>
-      <IsCdsUpgraded>0</IsCdsUpgraded>
-      <GalleryItemId xsi:nil="true"></GalleryItemId>
-      <BackgroundColor>rgba(97, 91, 76, 1)</BackgroundColor>
-      <DisplayName>Take Order</DisplayName>
-      <Description>Take Order is a simple sample app that shows how to build a high fidelity canvas Power App using Business Central data</Description>
-      <CommitMessage xsi:nil="true"></CommitMessage>
-      <Publisher></Publisher>
-      <AuthorizationReferences>[]</AuthorizationReferences>
-      <ConnectionReferences>{"6cb6806c-e815-4e58-8693-91bcb31c69e7":{"id":"/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas","displayName":"Dynamics 365 Business Central","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3440/dynamicssmbsaas/icon.png","dataSources":["languageResources (businessCentralDemos/TakeOrder/beta)","localeInformations (businessCentralDemos/TakeOrder/beta)","tables (businessCentralDemos/TakeOrder/beta)","salesOrders (v2.0)","salesOrderLines (v2.0)"],"dependencies":[],"dependents":["150e2896-54f3-405b-a1ae-bdda9e197568"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"POVERAPPS,42924de7-df46-ee11-be73-6045bdaccfa9":{"dataSources":{"languageResources (businessCentralDemos/TakeOrder/beta)":{"tableName":"languageResources,businessCentralDemos%252FTakeOrder%252Fbeta"},"localeInformations (businessCentralDemos/TakeOrder/beta)":{"tableName":"localeInformations,businessCentralDemos%252FTakeOrder%252Fbeta"},"tables (businessCentralDemos/TakeOrder/beta)":{"tableName":"tables,businessCentralDemos%252FTakeOrder%252Fbeta"},"salesOrders (v2.0)":{"tableName":"salesOrders,v2.0"},"salesOrderLines (v2.0)":{"tableName":"salesOrderLines,v2.0"}}}},"apiTier":"Premium","actions":["providers/PowerPlatform.Governance/Operations/Read","providers/PowerPlatform.Governance/Operations/Write"],"isCustomApiSolutionAware":false},"150e2896-54f3-405b-a1ae-bdda9e197568":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png","dataSources":["PostBCSalesOrder"],"dependencies":["6cb6806c-e815-4e58-8693-91bcb31c69e7"],"dependents":[],"parameterHints":{"workflowName":{"value":"50b79290-cfb6-4df6-9367-df3c1119c452"},"workflowEntityId":{"value":"8b94a6d9-a3c1-ed11-83ff-000d3a991110"},"6cb6806c-e815-4e58-8693-91bcb31c69e7":{"value":"shared_dynamicssmbsaas"}},"parameterHintsV2":{"workflowName":{"value":"50b79290-cfb6-4df6-9367-df3c1119c452"},"workflowEntityId":{"value":"8b94a6d9-a3c1-ed11-83ff-000d3a991110"},"shared_dynamicssmbsaas":{"value":"6cb6806c-e815-4e58-8693-91bcb31c69e7"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"],"isCustomApiSolutionAware":false},"f76ea4ce-7818-49a9-8a7a-926ae6124be6":{"id":"/providers/microsoft.powerapps/apis/shared_bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf","displayName":"BcOnline_TakeOrder","iconUri":"https://az787822.vo.msecnd.net/defaulticons/api-dedicated.png","dataSources":["BcOnline_TakeOrder"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["ItemsWithImage"],"customApiLogicalName":"cr301_bconline-5ftakeorder","isCustomApiSolutionAware":true}}</ConnectionReferences>
-      <DatabaseReferences>{}</DatabaseReferences>
-      <AppComponents>[]</AppComponents>
-      <AppComponentDependencies>[]</AppComponentDependencies>
-      <CanConsumeAppPass>1</CanConsumeAppPass>
-      <CanvasAppType>0</CanvasAppType>
-      <BypassConsent>0</BypassConsent>
-      <AdminControlBypassConsent>0</AdminControlBypassConsent>
-      <EmbeddedApp xsi:nil="true"></EmbeddedApp>
-      <IntroducedVersion>1.0</IntroducedVersion>
-      <CdsDependencies>{"cdsdependencies":[{"logicalname":"cr301_bconline-5ftakeorder","componenttype":372,"componenttypeplatformname":"connector"},{"dependencyid":"8b94a6d9-a3c1-ed11-83ff-000d3a991110","componenttype":29,"componenttypeplatformname":"Workflow"}]}</CdsDependencies>
-      <IsCustomizable>1</IsCustomizable>
-      <BackgroundImageUri>/CanvasApps/new_takemyorder_5a368_BackgroundImageUri</BackgroundImageUri>
-      <DocumentUri>/CanvasApps/new_takemyorder_5a368_DocumentUri.msapp</DocumentUri>
-    </CanvasApp>
-  </CanvasApps>
-  <Connectors>
-    <Connector>
-      <connectorid>cf0f68cd-6b3f-4a1c-b3de-f80c5d999858</connectorid>
-      <description>Custom api take orders</description>
-      <displayname>BcOnline_TakeOrder</displayname>
-      <iconbrandcolor>#007ee5</iconbrandcolor>
-      <name>cr301_bconline-5ftakeorder</name>
-      <connectortype>1</connectortype>
-      <openapidefinition>/Connector/cr301_bconline-5ftakeorder_openapidefinition.json</openapidefinition>
-      <connectionparameters>/Connector/cr301_bconline-5ftakeorder_connectionparameters.json</connectionparameters>
-      <policytemplateinstances>/Connector/cr301_bconline-5ftakeorder_policytemplateinstances.json</policytemplateinstances>
-      <iconblob>/Connector/cr301_bconline-5ftakeorder_iconblob.Png</iconblob>
-    </Connector>
-  </Connectors>
+  <CanvasApps />
+  <Connectors />
   <connectionreferences>
     <connectionreference connectionreferencelogicalname="cr301_new_bc2">
       <connectionreferencedisplayname>BC_Flow_connection2</connectionreferencedisplayname>

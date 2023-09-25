@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <connectorid>cf0f68cd-6b3f-4a1c-b3de-f80c5d999858</connectorid>
+  <description>Custom api take orders</description>
+  <displayname>BcOnline_TakeOrder</displayname>
+  <iconbrandcolor>#007ee5</iconbrandcolor>
+  <name>cr301_bconline-5ftakeorder</name>
+  <connectortype>1</connectortype>
+  <openapidefinition>/Connector/cr301_bconline-5ftakeorder_openapidefinition.json</openapidefinition>
+  <connectionparameters>/Connector/cr301_bconline-5ftakeorder_connectionparameters.json</connectionparameters>
+  <policytemplateinstances>/Connector/cr301_bconline-5ftakeorder_policytemplateinstances.json</policytemplateinstances>
+  <iconblob>/Connector/cr301_bconline-5ftakeorder_iconblob.Png</iconblob>
+</Connector>

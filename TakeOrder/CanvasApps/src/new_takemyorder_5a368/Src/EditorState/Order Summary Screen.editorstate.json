@@ -3283,7 +3283,14 @@
           "NameMapSourceSchema": "?"
         },
         "Italic",
-        "Underline",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Underline",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Strikethrough",
         {
           "AFDDataSourceName": "",

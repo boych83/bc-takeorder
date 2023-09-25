@@ -1,0 +1,138 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe-002.azure-apim.net/apim/bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="BcOnline_TakeOrder" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="BcOnline_TakeOrder">Custom api take orders</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe-002.azure-apim.net/apim/bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="languageResources_responses_default_def__ux40_odata_context_def" />
+      <string name="languageResources_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="languageResources_responses_default_def_value_def_items_def_labelId_def" />
+      <string name="languageResources_responses_default_def_value_def_items_def_DisplayName_def" />
+      <string name="languageResources_responses_default_def_value_def_items_def_languageCode_def" />
+      <object name="languageResources_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="labelId" type="string" />
+        <property name="DisplayName" type="string" />
+        <property name="languageCode" type="string" />
+      </object>
+      <array typeRef="languageResources_responses_default_def_value_def_items_def" name="languageResources_responses_default_def_value_def" />
+      <object name="languageResources_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="languageResources_responses_default_def_value_def" />
+      </object>
+      <string name="localeInformations_responses_default_def__ux40_odata_context_def" />
+      <string name="localeInformations_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="localeInformations_responses_default_def_value_def_items_def_id_def" />
+      <string name="localeInformations_responses_default_def_value_def_items_def_DisplayName_def" />
+      <string name="localeInformations_responses_default_def_value_def_items_def_countryRegionCode_def" />
+      <string name="localeInformations_responses_default_def_value_def_items_def_powerAppLocale_def" />
+      <object name="localeInformations_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="id" type="string" />
+        <property name="DisplayName" type="string" />
+        <property name="countryRegionCode" type="string" />
+        <property name="powerAppLocale" type="string" />
+      </object>
+      <array typeRef="localeInformations_responses_default_def_value_def_items_def" name="localeInformations_responses_default_def_value_def" />
+      <object name="localeInformations_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="localeInformations_responses_default_def_value_def" />
+      </object>
+      <untypedObject name="tables_responses_default_def" />
+      <string name="ItemsWithImage_responses_default_def__ux40_odata_context_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def__ux40_odata_etag_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_id_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_number_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_DisplayName_def" />
+      <integer name="ItemsWithImage_responses_default_def_value_def_items_def_unitPrice_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_baseUnitOfMeasureCode_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_itemImageText_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_GTIN_def" />
+      <boolean name="ItemsWithImage_responses_default_def_value_def_items_def_SoldInRestaurant_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_ShortItemDescription_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_Facts_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_AllergenInformation_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_itemCategoryName_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_itemCategoryCode_def" />
+      <string name="ItemsWithImage_responses_default_def_value_def_items_def_picture_def" />
+      <integer name="ItemsWithImage_responses_default_def_value_def_items_def_pictureHeight_def" />
+      <integer name="ItemsWithImage_responses_default_def_value_def_items_def_pictureWidth_def" />
+      <object name="ItemsWithImage_responses_default_def_value_def_items_def">
+        <property name="@odata.etag" type="string" />
+        <property name="id" type="string" />
+        <property name="number" type="string" />
+        <property name="DisplayName" type="string" />
+        <property name="unitPrice" type="integer" />
+        <property name="baseUnitOfMeasureCode" type="string" />
+        <property name="itemImageText" type="string" />
+        <property name="GTIN" type="string" />
+        <property name="SoldInRestaurant" type="boolean" />
+        <property name="ShortItemDescription" type="string" />
+        <property name="Facts" type="string" />
+        <property name="AllergenInformation" type="string" />
+        <property name="itemCategoryName" type="string" />
+        <property name="itemCategoryCode" type="string" />
+        <property name="picture" type="string" />
+        <property name="pictureHeight" type="integer" />
+        <property name="pictureWidth" type="integer" />
+      </object>
+      <array typeRef="ItemsWithImage_responses_default_def_value_def_items_def" name="ItemsWithImage_responses_default_def_value_def" />
+      <object name="ItemsWithImage_responses_default_def">
+        <property name="@odata.context" type="string" />
+        <property name="value" typeRef="ItemsWithImage_responses_default_def_value_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf">
+    <resource path="/{connectionId}/api/businessCentralDemos/TakeOrder/beta/languageResources">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="languageResources" actionName="languageResources" visibility="important" siena:isDeprecated="false">
+        <doc title="Language Resources&#xA;Get Language Resources" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:languageResources_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/businessCentralDemos/TakeOrder/beta/localeInformations">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="localeInformations" actionName="localeInformations" visibility="important" siena:isDeprecated="false">
+        <doc title="Get locale informations&#xA;Get locale informations" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:localeInformations_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/businessCentralDemos/TakeOrder/beta/companies({companyId})/tables">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="companyId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="tables" actionName="tables" siena:isDeprecated="false">
+        <doc title="Get tables&#xA;Get tables" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:tables_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/businessCentralDemos/TakeOrder/beta/itemsWithImage">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ItemsWithImage" actionName="ItemsWithImage" visibility="important" siena:isDeprecated="false">
+        <doc title="Get Items With Image&#xA;Gets items data with image" />
+        <request>
+          <param style="query" name="company" type="xs:string" />
+          <param style="query" name="$filter" type="xs:string" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ItemsWithImage_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
