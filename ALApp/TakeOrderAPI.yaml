@@ -1,0 +1,4407 @@
+openapi: 3.0.1
+info:
+  title: OData Service for namespace Microsoft.NAV
+  description: This OData service is located at http://localhost
+  version: 1.0.1
+servers:
+  - url: http://localhost
+paths:
+  /apicategoryroutes:
+    get:
+      tags:
+        - apicategoryroutes.apicategoryroutes
+      summary: Get entities from apicategoryroutes
+      operationId: apicategoryroutes.apicategoryroutes.ListApicategoryroutes
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - route
+                - route desc
+                - publisher
+                - publisher desc
+                - group
+                - group desc
+                - version
+                - version desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - route
+                - publisher
+                - group
+                - version
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of apicategoryroutes
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.apicategoryroutes'
+        default:
+          $ref: '#/components/responses/error'
+  '/apicategoryroutes({route})':
+    get:
+      tags:
+        - apicategoryroutes.apicategoryroutes
+      summary: Get entity from apicategoryroutes by key
+      operationId: apicategoryroutes.apicategoryroutes.GetApicategoryroutes
+      parameters:
+        - name: route
+          in: path
+          description: 'key: route of apicategoryroutes'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: apicategoryroutes
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - route
+                - publisher
+                - group
+                - version
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.apicategoryroutes'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /companies:
+    get:
+      tags:
+        - companies.company
+      summary: Get entities from companies
+      operationId: companies.company.ListCompany
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - systemVersion
+                - systemVersion desc
+                - timestamp
+                - timestamp desc
+                - name
+                - name desc
+                - displayName
+                - displayName desc
+                - businessProfileId
+                - businessProfileId desc
+                - systemCreatedAt
+                - systemCreatedAt desc
+                - systemCreatedBy
+                - systemCreatedBy desc
+                - systemModifiedAt
+                - systemModifiedAt desc
+                - systemModifiedBy
+                - systemModifiedBy desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - systemVersion
+                - timestamp
+                - name
+                - displayName
+                - businessProfileId
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+                - itemsWithImage
+                - Tables
+                - LanguageResources
+                - itempic
+                - LocaleInformations
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+                - itemsWithImage
+                - Tables
+                - LanguageResources
+                - itempic
+                - LocaleInformations
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of company
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.company'
+        default:
+          $ref: '#/components/responses/error'
+  '/companies({id})':
+    get:
+      tags:
+        - companies.company
+      summary: Get entity from companies by key
+      operationId: companies.company.GetCompany
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - systemVersion
+                - timestamp
+                - name
+                - displayName
+                - businessProfileId
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+                - itemsWithImage
+                - Tables
+                - LanguageResources
+                - itempic
+                - LocaleInformations
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+                - itemsWithImage
+                - Tables
+                - LanguageResources
+                - itempic
+                - LocaleInformations
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.company'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/itempic':
+    get:
+      tags:
+        - companies.itempic
+      summary: Get itempic from companies
+      operationId: companies.ListItempic
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - nummber desc
+                - base_UOM
+                - base_UOM desc
+                - description
+                - description desc
+                - inventory
+                - inventory desc
+                - pictureID
+                - pictureID desc
+                - picture
+                - picture desc
+                - SystemId
+                - SystemId desc
+                - item_Category_Code
+                - item_Category_Code desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - base_UOM
+                - description
+                - inventory
+                - pictureID
+                - picture
+                - SystemId
+                - item_Category_Code
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of itempic
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - companies.itempic
+      summary: Create new navigation property to itempic for companies
+      operationId: companies.CreateItempic
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/itempic({nummber})':
+    get:
+      tags:
+        - companies.itempic
+      summary: Get itempic from companies
+      operationId: companies.GetItempic
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - base_UOM
+                - description
+                - inventory
+                - pictureID
+                - picture
+                - SystemId
+                - item_Category_Code
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - companies.itempic
+      summary: Update the navigation property itempic in companies
+      operationId: companies.UpdateItempic
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - companies.itempic
+      summary: Delete navigation property itempic for companies
+      operationId: companies.DeleteItempic
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/itemsWithImage':
+    get:
+      tags:
+        - companies.itemWithImage
+      summary: Get itemsWithImage from companies
+      operationId: companies.ListItemsWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - number
+                - number desc
+                - DisplayName
+                - DisplayName desc
+                - unitPrice
+                - unitPrice desc
+                - baseUnitOfMeasureCode
+                - baseUnitOfMeasureCode desc
+                - itemImageText
+                - itemImageText desc
+                - GTIN
+                - GTIN desc
+                - SoldInRestaurant
+                - SoldInRestaurant desc
+                - ShortItemDescription
+                - ShortItemDescription desc
+                - Facts
+                - Facts desc
+                - AllergenInformation
+                - AllergenInformation desc
+                - itemCategoryName
+                - itemCategoryName desc
+                - itemCategoryCode
+                - itemCategoryCode desc
+                - picture
+                - picture desc
+                - pictureHeight
+                - pictureHeight desc
+                - pictureWidth
+                - pictureWidth desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - number
+                - DisplayName
+                - unitPrice
+                - baseUnitOfMeasureCode
+                - itemImageText
+                - GTIN
+                - SoldInRestaurant
+                - ShortItemDescription
+                - Facts
+                - AllergenInformation
+                - itemCategoryName
+                - itemCategoryCode
+                - picture
+                - pictureHeight
+                - pictureWidth
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of itemWithImage
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - companies.itemWithImage
+      summary: Create new navigation property to itemsWithImage for companies
+      operationId: companies.CreateItemsWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/itemsWithImage({id1})':
+    get:
+      tags:
+        - companies.itemWithImage
+      summary: Get itemsWithImage from companies
+      operationId: companies.GetItemsWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - number
+                - DisplayName
+                - unitPrice
+                - baseUnitOfMeasureCode
+                - itemImageText
+                - GTIN
+                - SoldInRestaurant
+                - ShortItemDescription
+                - Facts
+                - AllergenInformation
+                - itemCategoryName
+                - itemCategoryCode
+                - picture
+                - pictureHeight
+                - pictureWidth
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - companies.itemWithImage
+      summary: Update the navigation property itemsWithImage in companies
+      operationId: companies.UpdateItemsWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - companies.itemWithImage
+      summary: Delete navigation property itemsWithImage for companies
+      operationId: companies.DeleteItemsWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/LanguageResources':
+    get:
+      tags:
+        - companies.languageResource
+      summary: Get LanguageResources from companies
+      operationId: companies.ListLanguageResources
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - labelId desc
+                - DisplayName
+                - DisplayName desc
+                - languageCode
+                - languageCode desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - DisplayName
+                - languageCode
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of languageResource
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - companies.languageResource
+      summary: Create new navigation property to LanguageResources for companies
+      operationId: companies.CreateLanguageResources
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/LanguageResources({labelId})':
+    get:
+      tags:
+        - companies.languageResource
+      summary: Get LanguageResources from companies
+      operationId: companies.GetLanguageResources
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: labelId
+          in: path
+          description: 'key: labelId of languageResource'
+          required: true
+          schema:
+            maxLength: 100
+            type: string
+          x-ms-docs-key-type: languageResource
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - DisplayName
+                - languageCode
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - companies.languageResource
+      summary: Update the navigation property LanguageResources in companies
+      operationId: companies.UpdateLanguageResources
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: labelId
+          in: path
+          description: 'key: labelId of languageResource'
+          required: true
+          schema:
+            maxLength: 100
+            type: string
+          x-ms-docs-key-type: languageResource
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - companies.languageResource
+      summary: Delete navigation property LanguageResources for companies
+      operationId: companies.DeleteLanguageResources
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: labelId
+          in: path
+          description: 'key: labelId of languageResource'
+          required: true
+          schema:
+            maxLength: 100
+            type: string
+          x-ms-docs-key-type: languageResource
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/LocaleInformations':
+    get:
+      tags:
+        - companies.localeInformation
+      summary: Get LocaleInformations from companies
+      operationId: companies.ListLocaleInformations
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - DisplayName
+                - DisplayName desc
+                - countryRegionCode
+                - countryRegionCode desc
+                - powerAppLocale
+                - powerAppLocale desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - countryRegionCode
+                - powerAppLocale
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of localeInformation
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - companies.localeInformation
+      summary: Create new navigation property to LocaleInformations for companies
+      operationId: companies.CreateLocaleInformations
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/LocaleInformations({id1})':
+    get:
+      tags:
+        - companies.localeInformation
+      summary: Get LocaleInformations from companies
+      operationId: companies.GetLocaleInformations
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - countryRegionCode
+                - powerAppLocale
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - companies.localeInformation
+      summary: Update the navigation property LocaleInformations in companies
+      operationId: companies.UpdateLocaleInformations
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - companies.localeInformation
+      summary: Delete navigation property LocaleInformations for companies
+      operationId: companies.DeleteLocaleInformations
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/Tables':
+    get:
+      tags:
+        - companies.table
+      summary: Get Tables from companies
+      operationId: companies.ListTables
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - DisplayName
+                - DisplayName desc
+                - number
+                - number desc
+                - address
+                - address desc
+                - mail
+                - mail desc
+                - phone
+                - phone desc
+                - itemImageText
+                - itemImageText desc
+                - IsTable
+                - IsTable desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - number
+                - address
+                - mail
+                - phone
+                - itemImageText
+                - IsTable
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of table
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - companies.table
+      summary: Create new navigation property to Tables for companies
+      operationId: companies.CreateTables
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.table'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/companies({id})/Tables({id1})':
+    get:
+      tags:
+        - companies.table
+      summary: Get Tables from companies
+      operationId: companies.GetTables
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - number
+                - address
+                - mail
+                - phone
+                - itemImageText
+                - IsTable
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - companies.table
+      summary: Update the navigation property Tables in companies
+      operationId: companies.UpdateTables
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.table'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - companies.table
+      summary: Delete navigation property Tables for companies
+      operationId: companies.DeleteTables
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of company'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: company
+        - name: id1
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /entityDefinitions:
+    get:
+      tags:
+        - entityDefinitions.entityMetadata
+      summary: Get entities from entityDefinitions
+      operationId: entityDefinitions.entityMetadata.ListEntityMetadata
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - entityName
+                - entityName desc
+                - entitySetName
+                - entitySetName desc
+                - entityCaptions
+                - entityCaptions desc
+                - entitySetCaptions
+                - entitySetCaptions desc
+                - properties
+                - properties desc
+                - actions
+                - actions desc
+                - enumMembers
+                - enumMembers desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - entityName
+                - entitySetName
+                - entityCaptions
+                - entitySetCaptions
+                - properties
+                - actions
+                - enumMembers
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of entityMetadata
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.entityMetadata'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - entityDefinitions.entityMetadata
+      summary: Add new entity to entityDefinitions
+      operationId: entityDefinitions.entityMetadata.CreateEntityMetadata
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.entityMetadata'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.entityMetadata'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/entityDefinitions({entityName})':
+    get:
+      tags:
+        - entityDefinitions.entityMetadata
+      summary: Get entity from entityDefinitions by key
+      operationId: entityDefinitions.entityMetadata.GetEntityMetadata
+      parameters:
+        - name: entityName
+          in: path
+          description: 'key: entityName of entityMetadata'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: entityMetadata
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - entityName
+                - entitySetName
+                - entityCaptions
+                - entitySetCaptions
+                - properties
+                - actions
+                - enumMembers
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.entityMetadata'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - entityDefinitions.entityMetadata
+      summary: Update entity in entityDefinitions
+      operationId: entityDefinitions.entityMetadata.UpdateEntityMetadata
+      parameters:
+        - name: entityName
+          in: path
+          description: 'key: entityName of entityMetadata'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: entityMetadata
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.entityMetadata'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - entityDefinitions.entityMetadata
+      summary: Delete entity from entityDefinitions
+      operationId: entityDefinitions.entityMetadata.DeleteEntityMetadata
+      parameters:
+        - name: entityName
+          in: path
+          description: 'key: entityName of entityMetadata'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: entityMetadata
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /externalbusinesseventdefinitions:
+    get:
+      tags:
+        - externalbusinesseventdefinitions.externalbusinesseventdefinitions
+      summary: Get entities from externalbusinesseventdefinitions
+      operationId: externalbusinesseventdefinitions.externalbusinesseventdefinitions.ListExternalbusinesseventdefinitions
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - appId
+                - appId desc
+                - name
+                - name desc
+                - payload
+                - payload desc
+                - displayName
+                - displayName desc
+                - description
+                - description desc
+                - category
+                - category desc
+                - appName
+                - appName desc
+                - appPublisher
+                - appPublisher desc
+                - appVersion
+                - appVersion desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - appId
+                - name
+                - payload
+                - displayName
+                - description
+                - category
+                - appName
+                - appPublisher
+                - appVersion
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of externalbusinesseventdefinitions
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.externalbusinesseventdefinitions'
+        default:
+          $ref: '#/components/responses/error'
+  '/externalbusinesseventdefinitions(appId={appId},name={name})':
+    get:
+      tags:
+        - externalbusinesseventdefinitions.externalbusinesseventdefinitions
+      summary: Get entity from externalbusinesseventdefinitions by key
+      operationId: externalbusinesseventdefinitions.externalbusinesseventdefinitions.GetExternalbusinesseventdefinitions
+      parameters:
+        - name: appId
+          in: path
+          description: 'key: appId of externalbusinesseventdefinitions'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: externalbusinesseventdefinitions
+        - name: name
+          in: path
+          description: 'key: name of externalbusinesseventdefinitions'
+          required: true
+          schema:
+            maxLength: 80
+            type: string
+          x-ms-docs-key-type: externalbusinesseventdefinitions
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - appId
+                - name
+                - payload
+                - displayName
+                - description
+                - category
+                - appName
+                - appPublisher
+                - appVersion
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.externalbusinesseventdefinitions'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /externaleventsubscriptions:
+    get:
+      tags:
+        - externaleventsubscriptions.externaleventsubscriptions
+      summary: Get entities from externaleventsubscriptions
+      operationId: externaleventsubscriptions.externaleventsubscriptions.ListExternaleventsubscriptions
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - companyId
+                - companyId desc
+                - timestamp
+                - timestamp desc
+                - appId
+                - appId desc
+                - eventName
+                - eventName desc
+                - companyName
+                - companyName desc
+                - userId
+                - userId desc
+                - notificationUrl
+                - notificationUrl desc
+                - lastModifiedDateTime
+                - lastModifiedDateTime desc
+                - clientState
+                - clientState desc
+                - subscriptionType
+                - subscriptionType desc
+                - systemCreatedAt
+                - systemCreatedAt desc
+                - systemCreatedBy
+                - systemCreatedBy desc
+                - systemModifiedAt
+                - systemModifiedAt desc
+                - systemModifiedBy
+                - systemModifiedBy desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - companyId
+                - timestamp
+                - appId
+                - eventName
+                - companyName
+                - userId
+                - notificationUrl
+                - lastModifiedDateTime
+                - clientState
+                - subscriptionType
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of externaleventsubscriptions
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.externaleventsubscriptions'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - externaleventsubscriptions.externaleventsubscriptions
+      summary: Add new entity to externaleventsubscriptions
+      operationId: externaleventsubscriptions.externaleventsubscriptions.CreateExternaleventsubscriptions
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.externaleventsubscriptions'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.externaleventsubscriptions'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/externaleventsubscriptions({id})':
+    get:
+      tags:
+        - externaleventsubscriptions.externaleventsubscriptions
+      summary: Get entity from externaleventsubscriptions by key
+      operationId: externaleventsubscriptions.externaleventsubscriptions.GetExternaleventsubscriptions
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of externaleventsubscriptions'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: externaleventsubscriptions
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - companyId
+                - timestamp
+                - appId
+                - eventName
+                - companyName
+                - userId
+                - notificationUrl
+                - lastModifiedDateTime
+                - clientState
+                - subscriptionType
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.externaleventsubscriptions'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - externaleventsubscriptions.externaleventsubscriptions
+      summary: Update entity in externaleventsubscriptions
+      operationId: externaleventsubscriptions.externaleventsubscriptions.UpdateExternaleventsubscriptions
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of externaleventsubscriptions'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: externaleventsubscriptions
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.externaleventsubscriptions'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - externaleventsubscriptions.externaleventsubscriptions
+      summary: Delete entity from externaleventsubscriptions
+      operationId: externaleventsubscriptions.externaleventsubscriptions.DeleteExternaleventsubscriptions
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of externaleventsubscriptions'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: externaleventsubscriptions
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /itempic:
+    get:
+      tags:
+        - itempic.itempic
+      summary: Get entities from itempic
+      operationId: itempic.itempic.ListItempic
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - nummber desc
+                - base_UOM
+                - base_UOM desc
+                - description
+                - description desc
+                - inventory
+                - inventory desc
+                - pictureID
+                - pictureID desc
+                - picture
+                - picture desc
+                - SystemId
+                - SystemId desc
+                - item_Category_Code
+                - item_Category_Code desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - base_UOM
+                - description
+                - inventory
+                - pictureID
+                - picture
+                - SystemId
+                - item_Category_Code
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of itempic
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - itempic.itempic
+      summary: Add new entity to itempic
+      operationId: itempic.itempic.CreateItempic
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/itempic({nummber})':
+    get:
+      tags:
+        - itempic.itempic
+      summary: Get entity from itempic by key
+      operationId: itempic.itempic.GetItempic
+      parameters:
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - nummber
+                - base_UOM
+                - description
+                - inventory
+                - pictureID
+                - picture
+                - SystemId
+                - item_Category_Code
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - itempic.itempic
+      summary: Update entity in itempic
+      operationId: itempic.itempic.UpdateItempic
+      parameters:
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - itempic.itempic
+      summary: Delete entity from itempic
+      operationId: itempic.itempic.DeleteItempic
+      parameters:
+        - name: nummber
+          in: path
+          description: 'key: nummber of itempic'
+          required: true
+          schema:
+            maxLength: 20
+            type: string
+          x-ms-docs-key-type: itempic
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /itemsWithImage:
+    get:
+      tags:
+        - itemsWithImage.itemWithImage
+      summary: Get entities from itemsWithImage
+      operationId: itemsWithImage.itemWithImage.ListItemWithImage
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - number
+                - number desc
+                - DisplayName
+                - DisplayName desc
+                - unitPrice
+                - unitPrice desc
+                - baseUnitOfMeasureCode
+                - baseUnitOfMeasureCode desc
+                - itemImageText
+                - itemImageText desc
+                - GTIN
+                - GTIN desc
+                - SoldInRestaurant
+                - SoldInRestaurant desc
+                - ShortItemDescription
+                - ShortItemDescription desc
+                - Facts
+                - Facts desc
+                - AllergenInformation
+                - AllergenInformation desc
+                - itemCategoryName
+                - itemCategoryName desc
+                - itemCategoryCode
+                - itemCategoryCode desc
+                - picture
+                - picture desc
+                - pictureHeight
+                - pictureHeight desc
+                - pictureWidth
+                - pictureWidth desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - number
+                - DisplayName
+                - unitPrice
+                - baseUnitOfMeasureCode
+                - itemImageText
+                - GTIN
+                - SoldInRestaurant
+                - ShortItemDescription
+                - Facts
+                - AllergenInformation
+                - itemCategoryName
+                - itemCategoryCode
+                - picture
+                - pictureHeight
+                - pictureWidth
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of itemWithImage
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - itemsWithImage.itemWithImage
+      summary: Add new entity to itemsWithImage
+      operationId: itemsWithImage.itemWithImage.CreateItemWithImage
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/itemsWithImage({id})':
+    get:
+      tags:
+        - itemsWithImage.itemWithImage
+      summary: Get entity from itemsWithImage by key
+      operationId: itemsWithImage.itemWithImage.GetItemWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - number
+                - DisplayName
+                - unitPrice
+                - baseUnitOfMeasureCode
+                - itemImageText
+                - GTIN
+                - SoldInRestaurant
+                - ShortItemDescription
+                - Facts
+                - AllergenInformation
+                - itemCategoryName
+                - itemCategoryCode
+                - picture
+                - pictureHeight
+                - pictureWidth
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - itemsWithImage.itemWithImage
+      summary: Update entity in itemsWithImage
+      operationId: itemsWithImage.itemWithImage.UpdateItemWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - itemsWithImage.itemWithImage
+      summary: Delete entity from itemsWithImage
+      operationId: itemsWithImage.itemWithImage.DeleteItemWithImage
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of itemWithImage'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: itemWithImage
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /languageResources:
+    get:
+      tags:
+        - languageResources.languageResource
+      summary: Get entities from languageResources
+      operationId: languageResources.languageResource.ListLanguageResource
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - labelId desc
+                - DisplayName
+                - DisplayName desc
+                - languageCode
+                - languageCode desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - DisplayName
+                - languageCode
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of languageResource
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        default:
+          $ref: '#/components/responses/error'
+  '/languageResources({labelId})':
+    get:
+      tags:
+        - languageResources.languageResource
+      summary: Get entity from languageResources by key
+      operationId: languageResources.languageResource.GetLanguageResource
+      parameters:
+        - name: labelId
+          in: path
+          description: 'key: labelId of languageResource'
+          required: true
+          schema:
+            maxLength: 100
+            type: string
+          x-ms-docs-key-type: languageResource
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - labelId
+                - DisplayName
+                - languageCode
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - languageResources.languageResource
+      summary: Delete entity from languageResources
+      operationId: languageResources.languageResource.DeleteLanguageResource
+      parameters:
+        - name: labelId
+          in: path
+          description: 'key: labelId of languageResource'
+          required: true
+          schema:
+            maxLength: 100
+            type: string
+          x-ms-docs-key-type: languageResource
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /localeInformations:
+    get:
+      tags:
+        - localeInformations.localeInformation
+      summary: Get entities from localeInformations
+      operationId: localeInformations.localeInformation.ListLocaleInformation
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - DisplayName
+                - DisplayName desc
+                - countryRegionCode
+                - countryRegionCode desc
+                - powerAppLocale
+                - powerAppLocale desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - countryRegionCode
+                - powerAppLocale
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of localeInformation
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - localeInformations.localeInformation
+      summary: Add new entity to localeInformations
+      operationId: localeInformations.localeInformation.CreateLocaleInformation
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/localeInformations({id})':
+    get:
+      tags:
+        - localeInformations.localeInformation
+      summary: Get entity from localeInformations by key
+      operationId: localeInformations.localeInformation.GetLocaleInformation
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - countryRegionCode
+                - powerAppLocale
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - localeInformations.localeInformation
+      summary: Update entity in localeInformations
+      operationId: localeInformations.localeInformation.UpdateLocaleInformation
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - localeInformations.localeInformation
+      summary: Delete entity from localeInformations
+      operationId: localeInformations.localeInformation.DeleteLocaleInformation
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of localeInformation'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: localeInformation
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /subscriptions:
+    get:
+      tags:
+        - subscriptions.subscriptions
+      summary: Get entities from subscriptions
+      operationId: subscriptions.subscriptions.ListSubscriptions
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - subscriptionId
+                - subscriptionId desc
+                - notificationUrl
+                - notificationUrl desc
+                - resource
+                - resource desc
+                - timestamp
+                - timestamp desc
+                - userId
+                - userId desc
+                - lastModifiedDateTime
+                - lastModifiedDateTime desc
+                - clientState
+                - clientState desc
+                - expirationDateTime
+                - expirationDateTime desc
+                - systemCreatedAt
+                - systemCreatedAt desc
+                - systemCreatedBy
+                - systemCreatedBy desc
+                - systemModifiedAt
+                - systemModifiedAt desc
+                - systemModifiedBy
+                - systemModifiedBy desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - subscriptionId
+                - notificationUrl
+                - resource
+                - timestamp
+                - userId
+                - lastModifiedDateTime
+                - clientState
+                - expirationDateTime
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of subscriptions
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.subscriptions'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - subscriptions.subscriptions
+      summary: Add new entity to subscriptions
+      operationId: subscriptions.subscriptions.CreateSubscriptions
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.subscriptions'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.subscriptions'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/subscriptions({subscriptionId})':
+    get:
+      tags:
+        - subscriptions.subscriptions
+      summary: Get entity from subscriptions by key
+      operationId: subscriptions.subscriptions.GetSubscriptions
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: 'key: subscriptionId of subscriptions'
+          required: true
+          schema:
+            maxLength: 150
+            type: string
+          x-ms-docs-key-type: subscriptions
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - subscriptionId
+                - notificationUrl
+                - resource
+                - timestamp
+                - userId
+                - lastModifiedDateTime
+                - clientState
+                - expirationDateTime
+                - systemCreatedAt
+                - systemCreatedBy
+                - systemModifiedAt
+                - systemModifiedBy
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.subscriptions'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - subscriptions.subscriptions
+      summary: Update entity in subscriptions
+      operationId: subscriptions.subscriptions.UpdateSubscriptions
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: 'key: subscriptionId of subscriptions'
+          required: true
+          schema:
+            maxLength: 150
+            type: string
+          x-ms-docs-key-type: subscriptions
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.subscriptions'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - subscriptions.subscriptions
+      summary: Delete entity from subscriptions
+      operationId: subscriptions.subscriptions.DeleteSubscriptions
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: 'key: subscriptionId of subscriptions'
+          required: true
+          schema:
+            maxLength: 150
+            type: string
+          x-ms-docs-key-type: subscriptions
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /tables:
+    get:
+      tags:
+        - tables.table
+      summary: Get entities from tables
+      operationId: tables.table.ListTable
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - DisplayName
+                - DisplayName desc
+                - number
+                - number desc
+                - address
+                - address desc
+                - mail
+                - mail desc
+                - phone
+                - phone desc
+                - itemImageText
+                - itemImageText desc
+                - IsTable
+                - IsTable desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - number
+                - address
+                - mail
+                - phone
+                - itemImageText
+                - IsTable
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entities
+          content:
+            application/json:
+              schema:
+                title: Collection of table
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+    post:
+      tags:
+        - tables.table
+      summary: Add new entity to tables
+      operationId: tables.table.CreateTable
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.table'
+        required: true
+      responses:
+        '201':
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/tables({id})':
+    get:
+      tags:
+        - tables.table
+      summary: Get entity from tables by key
+      operationId: tables.table.GetTable
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - DisplayName
+                - number
+                - address
+                - mail
+                - phone
+                - itemImageText
+                - IsTable
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.NAV.table'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - tables.table
+      summary: Update entity in tables
+      operationId: tables.table.UpdateTable
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.NAV.table'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - tables.table
+      summary: Delete entity from tables
+      operationId: tables.table.DeleteTable
+      parameters:
+        - name: id
+          in: path
+          description: 'key: id of table'
+          required: true
+          schema:
+            pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            type: string
+            format: uuid
+          x-ms-docs-key-type: table
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+components:
+  schemas:
+    Microsoft.NAV.entityMetadata:
+      title: entityMetadata
+      type: object
+      properties:
+        entityName:
+          type: string
+        entitySetName:
+          type: string
+          nullable: true
+        entityCaptions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataLabel'
+            nullable: true
+        entitySetCaptions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataLabel'
+            nullable: true
+        properties:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataField'
+            nullable: true
+        actions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataAction'
+            nullable: true
+        enumMembers:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataEnumMember'
+            nullable: true
+      example:
+        entityName: string (identifier)
+        entitySetName: string
+        entityCaptions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        entitySetCaptions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        properties:
+          - '@odata.type': Microsoft.NAV.entityMetadataField
+        actions:
+          - '@odata.type': Microsoft.NAV.entityMetadataAction
+        enumMembers:
+          - '@odata.type': Microsoft.NAV.entityMetadataEnumMember
+    Microsoft.NAV.entityMetadataLabel:
+      title: entityMetadataLabel
+      type: object
+      properties:
+        languageCode:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          format: int32
+        caption:
+          type: string
+      example:
+        languageCode: integer
+        caption: string
+    Microsoft.NAV.entityMetadataField:
+      title: entityMetadataField
+      type: object
+      properties:
+        name:
+          type: string
+        captions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataLabel'
+            nullable: true
+      example:
+        name: string
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+    Microsoft.NAV.entityMetadataAction:
+      title: entityMetadataAction
+      type: object
+      properties:
+        name:
+          type: string
+        captions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataLabel'
+            nullable: true
+      example:
+        name: string
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+    Microsoft.NAV.entityMetadataEnumMember:
+      title: entityMetadataEnumMember
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          format: int32
+        captions:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Microsoft.NAV.entityMetadataLabel'
+            nullable: true
+      example:
+        name: string
+        value: integer
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+    Microsoft.NAV.company:
+      title: company
+      type: object
+      properties:
+        id:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        systemVersion:
+          type: string
+          nullable: true
+        timestamp:
+          type: integer
+          format: int64
+          nullable: true
+        name:
+          maxLength: 30
+          type: string
+          nullable: true
+        displayName:
+          maxLength: 250
+          type: string
+          nullable: true
+        businessProfileId:
+          maxLength: 250
+          type: string
+          nullable: true
+        systemCreatedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemCreatedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        systemModifiedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemModifiedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        itemsWithImage:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.NAV.itemWithImage'
+        Tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.NAV.table'
+        LanguageResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.NAV.languageResource'
+        itempic:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.NAV.itempic'
+        LocaleInformations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.NAV.localeInformation'
+      example:
+        id: string (identifier)
+        systemVersion: string
+        timestamp: integer
+        name: string
+        displayName: string
+        businessProfileId: string
+        systemCreatedAt: string (timestamp)
+        systemCreatedBy: string
+        systemModifiedAt: string (timestamp)
+        systemModifiedBy: string
+        itemsWithImage:
+          - '@odata.type': Microsoft.NAV.itemWithImage
+        Tables:
+          - '@odata.type': Microsoft.NAV.table
+        LanguageResources:
+          - '@odata.type': Microsoft.NAV.languageResource
+        itempic:
+          - '@odata.type': Microsoft.NAV.itempic
+        LocaleInformations:
+          - '@odata.type': Microsoft.NAV.localeInformation
+    Microsoft.NAV.subscriptions:
+      title: subscriptions
+      type: object
+      properties:
+        subscriptionId:
+          maxLength: 150
+          type: string
+        notificationUrl:
+          type: string
+        resource:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+          nullable: true
+        userId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        lastModifiedDateTime:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        clientState:
+          maxLength: 2048
+          type: string
+          nullable: true
+        expirationDateTime:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemCreatedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemCreatedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        systemModifiedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemModifiedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+      example:
+        subscriptionId: string (identifier)
+        notificationUrl: string
+        resource: string
+        timestamp: integer
+        userId: string
+        lastModifiedDateTime: string (timestamp)
+        clientState: string
+        expirationDateTime: string (timestamp)
+        systemCreatedAt: string (timestamp)
+        systemCreatedBy: string
+        systemModifiedAt: string (timestamp)
+        systemModifiedBy: string
+    Microsoft.NAV.externaleventsubscriptions:
+      title: externaleventsubscriptions
+      type: object
+      properties:
+        id:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        companyId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        timestamp:
+          type: integer
+          format: int64
+          nullable: true
+        appId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        eventName:
+          maxLength: 80
+          type: string
+          nullable: true
+        companyName:
+          maxLength: 30
+          type: string
+          nullable: true
+        userId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        notificationUrl:
+          maxLength: 2048
+          type: string
+          nullable: true
+        lastModifiedDateTime:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        clientState:
+          maxLength: 2048
+          type: string
+          nullable: true
+        subscriptionType:
+          type: string
+          nullable: true
+        systemCreatedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemCreatedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        systemModifiedAt:
+          pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+          type: string
+          format: date-time
+          nullable: true
+        systemModifiedBy:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+      example:
+        id: string (identifier)
+        companyId: string
+        timestamp: integer
+        appId: string
+        eventName: string
+        companyName: string
+        userId: string
+        notificationUrl: string
+        lastModifiedDateTime: string (timestamp)
+        clientState: string
+        subscriptionType: string
+        systemCreatedAt: string (timestamp)
+        systemCreatedBy: string
+        systemModifiedAt: string (timestamp)
+        systemModifiedBy: string
+    Microsoft.NAV.externalbusinesseventdefinitions:
+      title: externalbusinesseventdefinitions
+      type: object
+      properties:
+        appId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        name:
+          maxLength: 80
+          type: string
+        payload:
+          type: string
+        displayName:
+          maxLength: 250
+          type: string
+          nullable: true
+        description:
+          maxLength: 1024
+          type: string
+          nullable: true
+        category:
+          maxLength: 250
+          type: string
+          nullable: true
+        appName:
+          maxLength: 250
+          type: string
+          nullable: true
+        appPublisher:
+          maxLength: 250
+          type: string
+          nullable: true
+        appVersion:
+          maxLength: 43
+          type: string
+          nullable: true
+      example:
+        appId: string (identifier)
+        name: string (identifier)
+        payload: string
+        displayName: string
+        description: string
+        category: string
+        appName: string
+        appPublisher: string
+        appVersion: string
+    Microsoft.NAV.apicategoryroutes:
+      title: apicategoryroutes
+      type: object
+      properties:
+        route:
+          type: string
+        publisher:
+          maxLength: 40
+          type: string
+          nullable: true
+        group:
+          maxLength: 40
+          type: string
+          nullable: true
+        version:
+          maxLength: 10
+          type: string
+          nullable: true
+      example:
+        route: string (identifier)
+        publisher: string
+        group: string
+        version: string
+    Microsoft.NAV.itemWithImage:
+      title: itemWithImage
+      type: object
+      properties:
+        id:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        number:
+          maxLength: 20
+          type: string
+          nullable: true
+        DisplayName:
+          maxLength: 100
+          type: string
+          nullable: true
+        unitPrice:
+          type: number
+          format: decimal
+          nullable: true
+        baseUnitOfMeasureCode:
+          maxLength: 10
+          type: string
+          nullable: true
+        itemImageText:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        GTIN:
+          maxLength: 14
+          type: string
+          nullable: true
+        SoldInRestaurant:
+          type: boolean
+          nullable: true
+        ShortItemDescription:
+          maxLength: 1000
+          type: string
+          nullable: true
+        Facts:
+          maxLength: 1000
+          type: string
+          nullable: true
+        AllergenInformation:
+          maxLength: 1000
+          type: string
+          nullable: true
+        itemCategoryName:
+          type: string
+          nullable: true
+        itemCategoryCode:
+          maxLength: 20
+          type: string
+          nullable: true
+        picture:
+          type: string
+          nullable: true
+        pictureHeight:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          format: int32
+          nullable: true
+        pictureWidth:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          format: int32
+          nullable: true
+      example:
+        id: string (identifier)
+        number: string
+        DisplayName: string
+        unitPrice: number
+        baseUnitOfMeasureCode: string
+        itemImageText: string
+        GTIN: string
+        SoldInRestaurant: true
+        ShortItemDescription: string
+        Facts: string
+        AllergenInformation: string
+        itemCategoryName: string
+        itemCategoryCode: string
+        picture: string
+        pictureHeight: integer
+        pictureWidth: integer
+    Microsoft.NAV.table:
+      title: table
+      type: object
+      properties:
+        id:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        DisplayName:
+          maxLength: 100
+          type: string
+          nullable: true
+        number:
+          maxLength: 20
+          type: string
+          nullable: true
+        address:
+          maxLength: 100
+          type: string
+          nullable: true
+        mail:
+          maxLength: 80
+          type: string
+          nullable: true
+        phone:
+          maxLength: 30
+          type: string
+          nullable: true
+        itemImageText:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        IsTable:
+          type: boolean
+          nullable: true
+      example:
+        id: string (identifier)
+        DisplayName: string
+        number: string
+        address: string
+        mail: string
+        phone: string
+        itemImageText: string
+        IsTable: true
+    Microsoft.NAV.languageResource:
+      title: languageResource
+      type: object
+      properties:
+        labelId:
+          maxLength: 100
+          type: string
+        DisplayName:
+          maxLength: 250
+          type: string
+          nullable: true
+        languageCode:
+          maxLength: 10
+          type: string
+          nullable: true
+      example:
+        labelId: string (identifier)
+        DisplayName: string
+        languageCode: string
+    Microsoft.NAV.itempic:
+      title: itempic
+      type: object
+      properties:
+        nummber:
+          maxLength: 20
+          type: string
+        base_UOM:
+          maxLength: 10
+          type: string
+          nullable: true
+        description:
+          maxLength: 100
+          type: string
+          nullable: true
+        inventory:
+          type: number
+          format: decimal
+          nullable: true
+        pictureID:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        picture:
+          type: string
+          nullable: true
+        SystemId:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+          nullable: true
+        item_Category_Code:
+          maxLength: 20
+          type: string
+          nullable: true
+      example:
+        nummber: string (identifier)
+        base_UOM: string
+        description: string
+        inventory: number
+        pictureID: string
+        picture: string
+        SystemId: string
+        item_Category_Code: string
+    Microsoft.NAV.localeInformation:
+      title: localeInformation
+      type: object
+      properties:
+        id:
+          pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          type: string
+          format: uuid
+        DisplayName:
+          maxLength: 100
+          type: string
+          nullable: true
+        countryRegionCode:
+          maxLength: 10
+          type: string
+          nullable: true
+        powerAppLocale:
+          type: string
+          nullable: true
+      example:
+        id: string (identifier)
+        DisplayName: string
+        countryRegionCode: string
+        powerAppLocale: string
+    odata.error:
+      required:
+        - error
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/odata.error.main'
+    odata.error.main:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        target:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/odata.error.detail'
+        innererror:
+          type: object
+          description: The structure of this object is service-specific
+    odata.error.detail:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        target:
+          type: string
+  responses:
+    error:
+      description: error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odata.error'
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Show only the first n items
+      schema:
+        minimum: 0
+        type: integer
+      example: 50
+    skip:
+      name: $skip
+      in: query
+      description: Skip the first n items
+      schema:
+        minimum: 0
+        type: integer
+    count:
+      name: $count
+      in: query
+      description: Include count of items
+      schema:
+        type: boolean
+    filter:
+      name: $filter
+      in: query
+      description: Filter items by property values
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      description: Search items by search phrases
+      schema:
+        type: string
+  examples:
+    Microsoft.NAV.entityMetadata:
+      value:
+        actions:
+          - '@odata.type': Microsoft.NAV.entityMetadataAction
+        entityCaptions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        entityName: String (identifier)
+        entitySetCaptions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        entitySetName: String
+        enumMembers:
+          - '@odata.type': Microsoft.NAV.entityMetadataEnumMember
+        properties:
+          - '@odata.type': Microsoft.NAV.entityMetadataField
+    Microsoft.NAV.entityMetadataLabel:
+      value:
+        caption: String
+        languageCode: 0
+    Microsoft.NAV.entityMetadataField:
+      value:
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        name: String
+    Microsoft.NAV.entityMetadataAction:
+      value:
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        name: String
+    Microsoft.NAV.entityMetadataEnumMember:
+      value:
+        captions:
+          - '@odata.type': Microsoft.NAV.entityMetadataLabel
+        name: String
+        value: 0
+    Microsoft.NAV.company:
+      value:
+        businessProfileId: String
+        displayName: String
+        id: 00000000-0000-0000-0000-000000000000 (identifier)
+        itempic:
+          - '@odata.type': Microsoft.NAV.itempic
+        itemsWithImage:
+          - '@odata.type': Microsoft.NAV.itemWithImage
+        LanguageResources:
+          - '@odata.type': Microsoft.NAV.languageResource
+        LocaleInformations:
+          - '@odata.type': Microsoft.NAV.localeInformation
+        name: String
+        systemCreatedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemCreatedBy: 00000000-0000-0000-0000-000000000000
+        systemModifiedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemModifiedBy: 00000000-0000-0000-0000-000000000000
+        systemVersion: String
+        Tables:
+          - '@odata.type': Microsoft.NAV.table
+        timestamp: 0
+    Microsoft.NAV.subscriptions:
+      value:
+        clientState: String
+        expirationDateTime: '0001-01-01T00:00:00.0000000+00:00'
+        lastModifiedDateTime: '0001-01-01T00:00:00.0000000+00:00'
+        notificationUrl: String
+        resource: String
+        subscriptionId: String (identifier)
+        systemCreatedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemCreatedBy: 00000000-0000-0000-0000-000000000000
+        systemModifiedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemModifiedBy: 00000000-0000-0000-0000-000000000000
+        timestamp: 0
+        userId: 00000000-0000-0000-0000-000000000000
+    Microsoft.NAV.externaleventsubscriptions:
+      value:
+        appId: 00000000-0000-0000-0000-000000000000
+        clientState: String
+        companyId: 00000000-0000-0000-0000-000000000000
+        companyName: String
+        eventName: String
+        id: 00000000-0000-0000-0000-000000000000 (identifier)
+        lastModifiedDateTime: '0001-01-01T00:00:00.0000000+00:00'
+        notificationUrl: String
+        subscriptionType: String
+        systemCreatedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemCreatedBy: 00000000-0000-0000-0000-000000000000
+        systemModifiedAt: '0001-01-01T00:00:00.0000000+00:00'
+        systemModifiedBy: 00000000-0000-0000-0000-000000000000
+        timestamp: 0
+        userId: 00000000-0000-0000-0000-000000000000
+    Microsoft.NAV.externalbusinesseventdefinitions:
+      value:
+        appId: 00000000-0000-0000-0000-000000000000 (identifier)
+        appName: String
+        appPublisher: String
+        appVersion: String
+        category: String
+        description: String
+        displayName: String
+        name: String (identifier)
+        payload: String
+    Microsoft.NAV.apicategoryroutes:
+      value:
+        group: String
+        publisher: String
+        route: String (identifier)
+        version: String
+    Microsoft.NAV.itemWithImage:
+      value:
+        AllergenInformation: String
+        baseUnitOfMeasureCode: String
+        DisplayName: String
+        Facts: String
+        GTIN: String
+        id: 00000000-0000-0000-0000-000000000000 (identifier)
+        itemCategoryCode: String
+        itemCategoryName: String
+        itemImageText: 00000000-0000-0000-0000-000000000000
+        number: String
+        picture: String
+        pictureHeight: 0
+        pictureWidth: 0
+        ShortItemDescription: String
+        SoldInRestaurant: true
+        unitPrice: 0
+    Microsoft.NAV.table:
+      value:
+        address: String
+        DisplayName: String
+        id: 00000000-0000-0000-0000-000000000000 (identifier)
+        IsTable: true
+        itemImageText: 00000000-0000-0000-0000-000000000000
+        mail: String
+        number: String
+        phone: String
+    Microsoft.NAV.languageResource:
+      value:
+        DisplayName: String
+        labelId: String (identifier)
+        languageCode: String
+    Microsoft.NAV.itempic:
+      value:
+        base_UOM: String
+        description: String
+        inventory: 0
+        item_Category_Code: String
+        nummber: String (identifier)
+        picture: String
+        pictureID: 00000000-0000-0000-0000-000000000000
+        SystemId: 00000000-0000-0000-0000-000000000000
+    Microsoft.NAV.localeInformation:
+      value:
+        countryRegionCode: String
+        DisplayName: String
+        id: 00000000-0000-0000-0000-000000000000 (identifier)
+        powerAppLocale: String
+tags:
+  - name: apicategoryroutes.apicategoryroutes
+    x-ms-docs-toc-type: page
+  - name: companies.company
+    x-ms-docs-toc-type: page
+  - name: companies.itempic
+    x-ms-docs-toc-type: page
+  - name: companies.itemWithImage
+    x-ms-docs-toc-type: page
+  - name: companies.languageResource
+    x-ms-docs-toc-type: page
+  - name: companies.localeInformation
+    x-ms-docs-toc-type: page
+  - name: companies.table
+    x-ms-docs-toc-type: page
+  - name: entityDefinitions.entityMetadata
+    x-ms-docs-toc-type: page
+  - name: externalbusinesseventdefinitions.externalbusinesseventdefinitions
+    x-ms-docs-toc-type: page
+  - name: externaleventsubscriptions.externaleventsubscriptions
+    x-ms-docs-toc-type: page
+  - name: itempic.itempic
+    x-ms-docs-toc-type: page
+  - name: itemsWithImage.itemWithImage
+    x-ms-docs-toc-type: page
+  - name: languageResources.languageResource
+    x-ms-docs-toc-type: page
+  - name: localeInformations.localeInformation
+    x-ms-docs-toc-type: page
+  - name: subscriptions.subscriptions
+    x-ms-docs-toc-type: page
+  - name: tables.table
+    x-ms-docs-toc-type: page

@@ -72,7 +72,7 @@ page 70011 "TO - ItemWithImage"
                 {
                     Caption = 'Item Category Code';
                 }
-                field(picture; TempPictureBlobStorage."Value BLOB")
+                field(picture; GetItemPic."Pic as JSON"(Rec."No."))
                 {
                     Caption = 'Picture';
                 }
@@ -95,6 +95,8 @@ page 70011 "TO - ItemWithImage"
         TempPictureBlobStorage: Record "Name/Value Buffer" temporary; // The temporary record is used to load the picture
         PictureHeight: Integer;
         PictureWidth: Integer;
+        PictureAsJSON: Text;
+        GetItemPic: Codeunit "Get Item Pic";
 
     trigger OnAfterGetRecord()
     var
@@ -106,30 +108,31 @@ page 70011 "TO - ItemWithImage"
         FieldR: FieldRef;
         ItemCategory: Record "Item Category";
     begin
-        TempPictureBlobStorage.DeleteAll();
-        TempPictureBlobStorage.Init();
-        TempPictureBlobStorage."Value BLOB".CreateOutStream(OutStr);
 
-        // If the picture is of type Media, use this code:
+        // TempPictureBlobStorage.DeleteAll();
+        // TempPictureBlobStorage.Init();
+        // TempPictureBlobStorage."Value BLOB".CreateOutStream(OutStr);
+
+        //If the picture is of type Media, use this code:
         // Rec.Picture.Image.ExportStream(OutStr);
 
-        // If the picture is of type MediaSet, use this code:
-        if Rec.Picture.Count > 0 then begin
-            // If there are more than 1 pictures for this item. We take the first one.
-            MediaId := Rec.Picture.Item(1);
+        //If the picture is of type MediaSet, use this code:
+        // if Rec.Picture.Count > 0 then begin
+        //     // If there are more than 1 pictures for this item. We take the first one.
+        //     MediaId := Rec.Picture.Item(1);
 
-            TenantMedia.SetAutoCalcFields(Content);
-            if not TenantMedia.Get(MediaID) then
-                exit;
+        //     TenantMedia.SetAutoCalcFields(Content);
+        //     if not TenantMedia.Get(MediaID) then
+        //         exit;
 
-            TenantMedia.Content.CreateInStream(InStr);
-            CopyStream(OutStr, InStr);
+        //     TenantMedia.Content.CreateInStream(InStr);
+        //     CopyStream(OutStr, InStr);
 
-            PictureWidth := TenantMedia.Width;
-            PictureHeight := TenantMedia.Height;
-        end;
+        //     PictureWidth := TenantMedia.Width;
+        //     PictureHeight := TenantMedia.Height;
+        // end;
 
-        TempPictureBlobStorage.Insert();
+        // TempPictureBlobStorage.Insert();
 
         ItemCategoryName := '';
         if Rec."Item Category Code" <> '' then begin
@@ -137,6 +140,7 @@ page 70011 "TO - ItemWithImage"
             then
                 ItemCategoryName := ItemCategory.Description
         end;
+
     end;
 
     [ServiceEnabled]

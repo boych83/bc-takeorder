@@ -1,17 +1,52 @@
 {
-  "folders": [
-    {
-      "path": ".AL-Go"
-    },
-    {
-      "path": "AppCode"
-    },
-	{
-		"path": "..\\.github"
+	"folders": [
+		{
+			"path": "C:\\Development\\DevOps\\INIT\\GitHub\\Boych83\\bc-takeorder\\ALApp\\AppCode\\"
+		},
+	],
+	"settings": {
+		"settings": {
+			"al.packageCachePath": "C:\\Development\\DevOps\\INIT\\GitHub\\Boych83\\bc-takeorder\\ALApp\\AppCode\\.alpackages",
+			"al.enableCodeActions": true,
+			"al.backgroundCodeAnalysis": true,
+			"al.enableCodeAnalysis": true,
+			"al.codeAnalyzers": [
+				"${CodeCop}",
+				"${UICop}"
+			],
+		},
 	},
-	{
-		"path": "..\\scripts"
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+		{
+			"name": "Attach: Microsoft cloud sandbox",
+			"type": "al",
+			"request": "attach",
+			"environmentType": "Sandbox",
+			"environmentName": "PoverApps",
+			"breakOnError": "All",
+			"breakOnRecordWrite": "None",
+			"enableSqlInformationDebugger": true,
+			"enableLongRunningSqlStatements": true,
+			"longRunningSqlStatementsThreshold": 500,
+			"numberOfSqlStatements": 10,
+			"breakOnNext": "WebServiceClient"
+		},
+		{
+			"name": "Microsoft cloud sandbox",
+			"request": "launch",
+			"type": "al",
+			"environmentType": "Sandbox",
+			"environmentName": "PoverApps",
+			"startupObjectId": 70010,
+			"startupObjectType": "Page",
+			"breakOnError": "All",
+			"launchBrowser": false,
+			"enableLongRunningSqlStatements": true,
+			"enableSqlInformationDebugger": true,
+			"forceUpgrade": true,
+			"schemaUpdateMode": "ForceSync"
+		}]
 	}
-  ],
-  "settings": {}
 }

@@ -4,6 +4,7 @@ page 70014 "TO - LanguageResources"
     Caption = 'Take Order Language Resources';
     EntityName = 'LanguageResource';
     EntitySetName = 'LanguageResources';
+
     APIPublisher = 'businessCentralDemos';
     APIGroup = 'TakeOrder';
     APIVersion = 'beta';
