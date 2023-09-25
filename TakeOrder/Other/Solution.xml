@@ -1,12 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23083.174" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23084.206" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>TakeOrder</UniqueName>
     <LocalizedNames>
       <LocalizedName description="TakeOrder" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.2.6.0</Version>
+    <Version>1.2.4.0</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>Cr541ef</UniqueName>
@@ -80,6 +79,7 @@
     <RootComponents>
       <RootComponent type="29" id="{8b94a6d9-a3c1-ed11-83ff-000d3a991110}" behavior="0" />
       <RootComponent type="300" schemaName="new_takemyorder_5a368" behavior="0" />
+      <RootComponent type="372" id="{cf0f68cd-6b3f-4a1c-b3de-f80c5d999858}" schemaName="cr301_bconline-5ftakeorder" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>

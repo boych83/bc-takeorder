@@ -1,10 +1,10 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_dynamicssmbsaas": {
+      "shared_dynamicssmbsaas_1": {
         "runtimeSource": "invoker",
         "connection": {
-          "connectionReferenceLogicalName": "new_bc"
+          "connectionReferenceLogicalName": "cr301_new_bc2"
         },
         "api": {
           "name": "shared_dynamicssmbsaas"
@@ -63,7 +63,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_dynamicssmbsaas",
+              "connectionName": "shared_dynamicssmbsaas_1",
               "operationId": "ExecuteProcedureV3",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_dynamicssmbsaas"
             },
