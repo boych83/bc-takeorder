@@ -2,7 +2,10 @@
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
         =UpdateContext({ctxItemDetails: Blank()});
-        UpdateContext({ctxItemDetails: LookUp('itemsWithImage (businessCentralDemos/TakeOrder/beta)', id = ctxSelectedItem.id)});
+        
+        Set(ctxSelectedItemNumber,ctxSelectedItem.number);
+        
+        UpdateContext({ctxItemDetails: LookUp(BcOnline_TakeOrder.ItemsWithImage({'$filter':"SoldInRestaurant eq true and number eq "&"'"&ctxSelectedItemNumber&"'",company:"My Company"}).value, id = ctxSelectedItem.id)});
 
     conItemDetails As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -92,7 +95,7 @@
                 Font: =varTheme.font
                 Height: =70
                 Size: =24
-                Text: =Text(ctxItemDetails.'Unit Price', varCurrencyFormat, varBcLocale)
+                Text: =Text(ctxItemDetails.unitPrice, varCurrencyFormat, varBcLocale)
                 Width: =177
                 X: =40
                 Y: =50
@@ -156,7 +159,7 @@
                                 quantity: 1,
                                 // Use placeholder image if the image is not provided
                                 image: If(
-                                    ctxSelectedItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
+                                    ctxSelectedItem.itemImageText = "00000000-0000-0000-0000-000000000000",
                                     placeholder,
                                     ctxSelectedItem.picture
                                 )
@@ -400,7 +403,8 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Height: =320
-                Image: =ctxItemDetails.Picture
+                Image: |-
+                    ="data:image; application/octet-stream; base64," & ctxItemDetails.picture
                 Width: =320
                 X: =40
                 Y: =30
@@ -410,7 +414,9 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =RGBA(255, 188, 0, 0.08)
                 Height: =imgItemDetailsImage.Height
-                Tooltip: =varLabels.ItemImageText & ctxItemDetails.'Display Name'
+                OnSelect: |-
+                    ="data:image; application/octet-stream; base64," & ctxSelectedItem.picture
+                Tooltip: =varLabels.ItemImageText & ctxItemDetails.itemImageText
                 Visible: =false
                 Width: =imgItemDetailsImage.Width
                 X: =imgItemDetailsImage.X
@@ -471,7 +477,7 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: =ctxItemDetails.'Short Item Description'
+                    Default: =ctxItemDetails.ShortItemDescription
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -555,7 +561,7 @@
                     LineHeight: =1.4
                     Size: =21
                     Text: =varLabels.ItemScreen_Allergens
-                    Visible: =ctxItemDetails.'Allergen Information' <> ""
+                    Visible: =ctxItemDetails.AllergenInformation <> ""
                     Width: =560
                     X: =40
                     Y: =40
@@ -567,7 +573,7 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: =ctxItemDetails.'Allergen Information'
+                    Default: =ctxItemDetails.AllergenInformation
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -587,7 +593,7 @@
                     PaddingLeft: =5
                     PaddingTop: =0
                     Size: =21
-                    Visible: =ctxItemDetails.'Allergen Information' <> ""
+                    Visible: =ctxItemDetails.AllergenInformation <> ""
                     Width: =Parent.Width - 60
                     X: =(Parent.Width - Self.Width) /2
                     ZIndex: =6

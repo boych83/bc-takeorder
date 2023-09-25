@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
     "CdpRevision": {
       "BaseUrl": "/v3",
-      "LastChangedTimeString": "2023-06-29T17:45:13.1300000Z",
+      "LastChangedTimeString": "2023-09-21T23:26:40.4910000Z",
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -40,7 +40,7 @@
       "unitOfMeasureId": "Unit Of Measure Id",
       "unitPrice": "Unit Price"
     },
-    "DatasetName": "PoverApps,42924de7-df46-ee11-be73-6045bdaccfa9",
+    "DatasetName": "POVERAPPS,42924de7-df46-ee11-be73-6045bdaccfa9",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,

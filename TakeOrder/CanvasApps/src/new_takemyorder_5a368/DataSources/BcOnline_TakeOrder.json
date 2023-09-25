@@ -1,0 +1,8 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_bconline-5ftakeorder-5fd702ff5e4a671ec9-5f135f46acc93b08bf",
+    "Name": "BcOnline_TakeOrder",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo"
+  }
+]

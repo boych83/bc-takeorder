@@ -22,8 +22,8 @@
         Height: =875
         Items: |-
             =Filter(colOrderSummary, Or(
-                                        Or(header, total), 
-                                        Not(group in colCurrentOrderState_CollapsedGroups)
+                                        Or(header, total)
+                                        //Not(group in colCurrentOrderState_CollapsedGroups)
                                     )
             )
         Layout: =Layout.Vertical
@@ -598,7 +598,7 @@
                 colSelectedItems,
                 Patch('salesOrderLines (v2.0)', 
                       Defaults('salesOrderLines (v2.0)'), 
-                      {'Document Id': varActiveorderForSelectedTable.Id, 'Item Id': ThisRecord.id, Quantity: ThisRecord.quantity}
+                      {'Document Id': varActiveorderForSelectedTable.Id, 'Item Id': GUID(ThisRecord.id), Quantity: ThisRecord.quantity}
                     );
             );
             
@@ -630,32 +630,77 @@
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
         OnSelect: |
-            =UpdateContext({ctxShowCheckoutOverlay: true, ctxError: false});
-            
-            IfError(Set(varCreatedSalesOrder, Patch('salesOrders (v2.0)', Defaults('salesOrders (v2.0)'), {'Customer Id': varSelectedTable.id})),
-                Notify("An error happened while creating the order for " & varSelectedTable.displayName , NotificationType.Error);
-                Trace("An error happened whilte creating the order", TraceSeverity.Error, FirstError);
-                UpdateContext({ctxError: true});
+            =UpdateContext(
+                {
+                    ctxShowCheckoutOverlay: true,
+                    ctxError: false
+                }
             );
-            
-            If(Not(ctxError),
-                IfError(
-                    ForAll(colSelectedItems As item,
-                        Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), {'Document Id': varCreatedSalesOrder.Id, 'Item Id': item.id, Quantity: item.quantity});
+            IfError(
+                Set(
+                    varCreatedSalesOrder,
+                    Patch(
+                        'salesOrders (v2.0)',
+                        Defaults('salesOrders (v2.0)'),
+                        {'Customer Id': varSelectedTable.id}
                     )
-                    ,
-                    // Log the the error if it happened
-                    Notify("An error happened while adding the items for " & varSelectedTable.displayName , NotificationType.Error);
-                    Trace("An error happened while adding the items for", TraceSeverity.Error, FirstError);
-                    ,
-                    // If all patches succeeded, continue to success screen
-                    ClearCollect(colSelectedItems, Blank());
-                    UpdateContext({ctxShowCheckoutOverlay: false});
-                    Navigate('Action Success Screen', ScreenTransition.Fade);
+                ),
+                Notify(
+                    "An error happened while creating the order for " & varSelectedTable.displayName,
+                    NotificationType.Error
                 );
+                Trace(
+                    "An error happened whilte creating the order",
+                    TraceSeverity.Error,
+                    FirstError
+                );
+                UpdateContext({ctxError: true});
+                
             );
-            
-            UpdateContext({ctxError: false, ctxShowCheckoutOverlay: false});
+            If(
+                Not(ctxError),
+                IfError(
+                    ForAll(
+                        colSelectedItems As item,
+                        Patch(
+                            'salesOrderLines (v2.0)',
+                            Defaults('salesOrderLines (v2.0)'),
+                            {
+                                'Document Id': varCreatedSalesOrder.Id,
+                                'Item Id': GUID(item.id),
+                                Quantity: item.quantity
+                            }
+                        );
+                    ),
+                    Notify(
+                        "An error happened while adding the items for " & varSelectedTable.displayName,
+                        NotificationType.Error
+                    );
+                    Trace(
+                        "An error happened while adding the items for",
+                        TraceSeverity.Error,
+                        FirstError
+                    );
+                    ,
+                // If all patches succeeded, continue to success screen
+                    ClearCollect(
+                        colSelectedItems,
+                        Blank()
+                    );
+                    UpdateContext({ctxShowCheckoutOverlay: false});
+                    Navigate(
+                        'Action Success Screen',
+                        ScreenTransition.Fade
+                    );
+                );
+                
+            );
+            UpdateContext(
+                {
+                    ctxError: false,
+                    ctxShowCheckoutOverlay: false
+                }
+            );
         PaddingTop: =0
         RadiusBottomLeft: =Self.Height/2
         RadiusBottomRight: =Self.Height/2
@@ -821,7 +866,7 @@
             =UpdateContext({ctxShowCheckOutDialog: false, ctxShowCheckoutOverlay: true});
             
             // Add error handling
-            Set(varPostSalesOrderResponse, PostBCSalesOrder.Run(varActiveorderForSelectedTable.Id));
+            Set(varPostSalesOrderResponse, PostBcSalesOrder.Run(varActiveorderForSelectedTable.Id));
             
             If(And(Not(IsBlankOrError(varPostSalesOrderResponse)), Value(varPostSalesOrderResponse.status) > 0),
                 // Post succeded 
@@ -888,8 +933,9 @@
                 // Find all unique Items from Sales orders
                 Clear(colUniqueItemsFromOrder);
                 ForAll(Distinct(colTempSalesOrderLines, 'Item Id') As uniquItemId, 
-                    Collect(colUniqueItemsFromOrder, LookUp('itemsWithImage (businessCentralDemos/TakeOrder/beta)', id = uniquItemId.Value));
-                );
+                    Collect(colUniqueItemsFromOrder, 
+                        LookUp(BcOnline_TakeOrder.ItemsWithImage({'$filter':"SoldInRestaurant eq true",company:"My Company"}).value, GUID(id) = uniquItemId.Value)));
+            
             
                 // Add items to collection with sum quantity
                 Clear(colSelectedItems);
@@ -899,9 +945,9 @@
                         name: uniqueItem.DisplayName,
                         price: uniqueItem.unitPrice,
                         group: uniqueItem.itemCategoryName,
-                        quantity: Sum(Filter(colTempSalesOrderLines, 'Item Id' = uniqueItem.id), Quantity),
+                        quantity: Sum(Filter(colTempSalesOrderLines, 'Item Id' = GUID(uniqueItem.id)), Quantity),
                         // Use placeholder image if the image is not provided
-                        image: If(uniqueItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
+                        image: If(uniqueItem.itemImageText = "00000000-0000-0000-0000-000000000000",
                             placeholder,
                             uniqueItem.picture
                         )                        
@@ -930,7 +976,7 @@
                 // All all items for group
                 Collect(colOrderSummary, Filter(colSelectedItems, And(group = itemGroups.Result, quantity > 0)));
                 // Set initial group state to collapsed
-                Collect(colCurrentOrderState_CollapsedGroups, {name: itemGroups.Result});
+                //Collect(colCurrentOrderState_CollapsedGroups, {name: itemGroups.Result});
             );
             // Add Total at the end
             Collect(colOrderSummary, {id: GUID(), total: true});

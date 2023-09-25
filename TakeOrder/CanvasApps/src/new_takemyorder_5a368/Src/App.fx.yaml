@@ -5,7 +5,7 @@ App As appinfo:
         ="Are you sure you want to close the app? 
         Any unsubmitted changes will be lost"
     OnError: =
-    OnStart: |
+    OnStart: |-
         =Set(
             varTheme,
             {
@@ -16,6 +16,7 @@ App As appinfo:
             }
         );
     StartScreen: ='Loading Screen'
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
